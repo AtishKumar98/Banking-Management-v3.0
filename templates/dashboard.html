@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <body>
+    <h4><center>Accounts</center></h4>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Account no</th>
+          <th scope="col">Type</th>
+          <th scope="col">User</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for account in account %}
+        <tr>
+          <th scope="row">{{account.Account_id}}</th>
+
+          <td>{{account.account_no}}</td>
+          <td>{{account.account_type}}</td>
+          <td>{{account.user}}</td>
+          <td>{{account.balance}}</td>
+          <td>
+            <a href ="{% url 'delete_acc' account.Account_id %}" class="btn btn-outline-danger"><i class='bx bx-trash'></i> Delete</button></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <hr>
+    <h4><center>Customer</center></h4>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">User</th>
+          <th scope="col">First_Name</th>
+          <th scope="col">PAN</th>
+          <th scope="col">Aadhar</th>
+          <th scope="col">Date of Birth</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customers in customer %}
+        <tr>
+          <th scope="row">{{customers.id}}</th>
+          <td>{{customers.user}}</td>
+          <td>{{customers.First_Name}}</td>
+          <td>{{customers.PAN}}</td>
+          <td>{{customers.Aadhar}}</td>
+          <td>{{customers.Date_of_Birth}}</td>
+
+          <td>
+            <a href ="{% url 'update' customers.id %}" class="btn btn-outline-info"><i class='bx bxs-edit'></i> Update</button>
+            </td></a>
+    
+            <td><a href ="{% url 'delete_cust' customers.id %}" class="btn btn-outline-danger"><i class='bx bx-trash'></i> Delete</button></td>
+            {% endfor %}
+          
+        </tr>
+      </tbody>
+    </table>
+
+    {% endblock content %}

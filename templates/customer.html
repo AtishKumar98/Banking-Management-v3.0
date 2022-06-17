@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+
+  <h3>Customer</h3>
+</center>
+    <div class="container  card-body md-5">
+
+        <form class=" md-5"  action = '' method="POST">
+            <input class="form-control bg-dark text-light" type="text" name="user_id" value="{{request.user}}" aria-label="readonly input example" readonly>{% csrf_token %}
+            {{form}}
+            <input class="btn btn-primary" type="submit" value="Update">
+        </form>
+        
+    </div>
+    
+{% endblock content %}

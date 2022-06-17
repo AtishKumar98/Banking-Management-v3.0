@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid  card-body md-5">
+
+    <form action = '' method = 'POST'>{% csrf_token %}
+        {{form_update}}
+        <input class="btn btn-primary" type="submit" value="Update">
+    </form>
+    
+</div>
+  
+  {% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <body class = 'bg-dark text-light'>
+    
+    <div class="container-fluid">
+      <h1 class = 'm-2'>Credited from my account Report </h1>
+      <table class="table bg-dark text-light mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Sr no</th>
+            <th scope="col">To Account</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Balance after Transaction</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+          {% for c in b %}
+            <tr>
+              <td>{{c.id}}</td>
+              <td>{{c.To_accno}}</td>
+              <td>{{c.amount}}</td>
+              <td>{{c.transaction_balance}}</td>
+              <td>{{c.status}}</td>
+              {% endfor %}
+              {{d}}
+              
+            </tr>
+            
+          </tbody>
+        </table>
+        <h1 class = 'm-2'>Desposited To my account Report</h1>
+<table class="table bg-dark text-light mt-5">
+  <thead>
+      <tr>
+          <th scope="col">Sr no</th>
+          <th scope="col">From Account</th>
+          <th scope="col">Amount</th>
+          <!-- <th scope="col">Balance after Transaction</th> -->
+          <th scope="col">Status</th>
+      </tr>
+  </thead>
+  <tbody>
+   
+{% for d in c %}
+<tr>
+<td>{{d.id}}</td>
+<td>{{d.From_accno}}</td>
+<td>{{d.amount}}</td>
+<td>{{d.status}}</td>
+{% endfor %}
+
+    
+  </tr>
+ 
+</tbody>
+</table>
+
+</div>
+{% endblock content %}
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

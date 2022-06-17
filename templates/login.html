@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+   
+    <link rel="stylesheet" href="../static/css/login-flip.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel = 'icon' href = '../static/img/RCP studio.png'>
+    <title> HSFC | Banking |</title>
+      <style>
+        .errors {
+          color: red;
+        }
+      </style>
+      </head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="../static/img/banking.jpg" alt="">
+        <!-- <div class="text">
+          <span class="text-1">Every new friend is a <br> new adventure</span>
+          <span class="text-2">Let's get connected</span>
+        </div> -->
+      </div>
+      <div class="back">
+          <img class="backImg" src="../static/img/ecart-login.jpg" alt="">
+          <!-- <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div> -->
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+            <form method="POST" action=""> {% csrf_token %}
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter your email" name="username" required class="form-control" >
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" name="password" required class="form-control" >
+              </div>
+              <div class="form-group form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                  id="exampleCheck3"
+                  checked
+                />
+                <label class="form-check-label inline-block text-gray-800" for="exampleCheck2"
+                  >Remember me</label
+                >
+              </div><br>
+              <div class="text"><a href="/reset_password">Forgot password?</a></div>
+              <div class="button input-box">
+                <input type="submit" name="form1" value="Login">
+                
+              </div>
+              <br>
+               
+            {% for message in messages %}
+						{{message}}
+						{% endfor %}
+            <div class = 'errors'>
+              {{form.errors}}
+            </div>
+        
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+        <form action="/login/" method="POST">{% csrf_token %}
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                {{form.username}}
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                {{form.email}}
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                {{form.password1}}
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                {{form.password2}}
+              </div>
+              <div class="button input-box">
+                <input type="submit" name="form2" name="form2" value="Register">
+              </div>
+              
+                
+              
+              {% for message in messages %}
+              {{message}}
+              {% endfor %}
+              <div class= 'errors'>
+                {{form.errors}}
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Log in </label></div>
+              
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+</body>
+  </html>
